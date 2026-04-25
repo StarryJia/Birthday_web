@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6c6cf" />
+    <meta name="description" content="一页轻盈、温柔的生日祝福。愿今天有风、有花，也有被悄悄收藏的快乐。" />
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-label="生日祝福封面">
+        <div class="hero-mark" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">A quiet little wish</p>
+          <h1>Happy Birthday</h1>
+          <p class="hero-copy">
+            愿今天的风刚好温柔，云也慢一点。愿那些没有说出口的好意，都在这一刻轻轻抵达。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#memories">慢慢往下看</a>
+            <button class="secondary-action" type="button" data-confetti-button>一点点星光</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="wish-section" aria-label="生日祝福">
+        <div class="section-heading">
+          <p>Soft Wishes</p>
+          <h2>愿新的一岁，像月光落在花枝上</h2>
+        </div>
+
+        <div class="wish-grid">
+          <article class="wish-card">
+            <span class="card-number">01</span>
+            <h3>慢慢发光</h3>
+            <p>愿你不必急着成为谁，只在喜欢的日子里，安静而笃定地亮起来。</p>
+          </article>
+          <article class="wish-card">
+            <span class="card-number">02</span>
+            <h3>被风偏爱</h3>
+            <p>愿路过你的风都柔软，遇见的人都真诚，心里的小愿望都有人温柔记得。</p>
+          </article>
+          <article class="wish-card">
+            <span class="card-number">03</span>
+            <h3>把梦养大</h3>
+            <p>愿你仍然相信浪漫，也拥有把普通日子过成诗的勇气。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="memory-section" id="memories" aria-label="回忆照片">
+        <div class="section-heading memory-heading">
+          <p>Old Days, Gentle Light</p>
+          <h2>有些瞬间，后来会自己发亮</h2>
+        </div>
+
+        <article class="memory-reveal" data-memory-card>
+          <div class="memory-sticky">
+            <figure class="memory-photo">
+              <img src="assets/memory-dinner.jpg" alt="聚餐时留下的回忆照片" loading="lazy" />
+            </figure>
+            <div class="memory-text">
+              <span>01</span>
+              <h3>灯光、笑声和一顿饭的距离</h3>
+              <p>
+                后来想起那天，最清楚的不是具体说过什么，而是气氛很轻，笑意很近。像把平凡的一晚，悄悄折进了记忆里。
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="memory-reveal" data-memory-card>
+          <div class="memory-sticky">
+            <figure class="memory-photo">
+              <img src="assets/memory-camping.jpg" alt="露营时留下的回忆照片" loading="lazy" />
+            </figure>
+            <div class="memory-text">
+              <span>02</span>
+              <h3>在风里，把时间放慢一点</h3>
+              <p>
+                那些靠近自然的时刻，总像给心留了一扇窗。风吹过的时候，很多话不用说，也已经很完整。
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="surprise-section" aria-label="生日惊喜">
+        <div class="surprise-box">
+          <p class="section-kicker">A little secret</p>
+          <h2>藏在最后的一句话</h2>
+          <button class="gift-button" type="button" data-gift-button aria-expanded="false">
+            <span class="gift-lid"></span>
+            <span class="gift-body"></span>
+            <span class="gift-ribbon"></span>
+            <span class="sr-only">打开祝福</span>
+          </button>
+          <p class="surprise-message" data-surprise-message>
+            生日快乐。愿你永远有值得期待的明天，也永远有可以安心停靠的片刻。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Made with quiet wishes · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
