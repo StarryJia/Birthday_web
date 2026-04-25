@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f6c6cf" />
     <meta name="description" content="一页轻盈、温柔的生日祝福。愿今天有风、有花，也有被悄悄收藏的快乐。" />
     <title>Happy Birthday</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=iphone2" />
   </head>
   <body>
     <main class="page-shell">
@@ -61,10 +61,12 @@
           <div class="memory-item">
             <figure class="memory-photo">
               <img
-                src="assets/memory-dinner.jpg"
+                src="assets/memory-dinner-iphone.jpg"
+                srcset="assets/memory-dinner-iphone.jpg 480w"
+                sizes="(max-width: 760px) calc(100vw - 28px), 480px"
                 alt="聚餐时留下的回忆照片"
-                width="720"
-                height="416"
+                width="480"
+                height="277"
                 loading="eager"
                 decoding="async"
               />
@@ -83,10 +85,12 @@
           <div class="memory-item">
             <figure class="memory-photo">
               <img
-                src="assets/memory-camping.jpg"
+                src="assets/memory-camping-iphone.jpg"
+                srcset="assets/memory-camping-iphone.jpg 480w"
+                sizes="(max-width: 760px) calc(100vw - 28px), 480px"
                 alt="露营时留下的回忆照片"
-                width="720"
-                height="536"
+                width="480"
+                height="357"
                 loading="eager"
                 decoding="async"
               />
@@ -123,6 +127,6 @@
       <p>Made with quiet wishes · 2026</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=iphone2"></script>
   </body>
 </html>
