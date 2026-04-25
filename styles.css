@@ -9,6 +9,13 @@
   --muted: #7b6e72;
   --white: #ffffff;
   --shadow: 0 24px 70px rgba(80, 55, 64, 0.14);
+  --app-height: 100svh;
+  --memory-reveal-height: 165svh;
+  --memory-img-max-height: 72svh;
+  --mobile-sticky-height: 88svh;
+  --mobile-sticky-pad: 34px;
+  --mobile-img-height: 54svh;
+  --mobile-text-max-height: 72svh;
 }
 
 * {
@@ -52,7 +59,7 @@ figure {
 .hero {
   position: relative;
   display: grid;
-  min-height: 94svh;
+  min-height: min(94svh, var(--app-height));
   padding: max(28px, env(safe-area-inset-top)) 20px 72px;
   place-items: center;
   isolation: isolate;
@@ -238,7 +245,7 @@ h3 {
   position: sticky;
   top: 0;
   display: grid;
-  min-height: 100svh;
+  min-height: var(--app-height);
   padding: 72px 18px;
   place-items: center;
 }
@@ -268,7 +275,7 @@ h3 {
 .memory-photo img {
   display: block;
   width: 100%;
-  max-height: 72svh;
+  max-height: var(--memory-img-max-height);
   object-fit: cover;
   border-radius: 24px;
   box-shadow: var(--shadow);
@@ -423,7 +430,7 @@ h3 {
 
 @media (max-width: 760px) {
   .hero {
-    min-height: 100svh;
+    min-height: var(--app-height);
     padding-right: 16px;
     padding-left: 16px;
   }
@@ -465,25 +472,79 @@ h3 {
   }
 
   .memory-reveal {
-    height: 172svh;
+    height: var(--memory-reveal-height);
   }
 
   .memory-sticky {
-    padding: 54px 14px;
+    min-height: var(--mobile-sticky-height);
+    padding: var(--mobile-sticky-pad) 14px;
   }
 
   .memory-photo,
   .memory-text {
-    width: 100%;
+    width: min(100%, clamp(286px, 88vw, 410px));
   }
 
   .memory-photo img {
-    height: 68svh;
-    border-radius: 22px;
+    height: var(--mobile-img-height);
+    max-height: var(--memory-img-max-height);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 20px;
   }
 
   .memory-text {
-    border-radius: 22px;
+    max-height: var(--mobile-text-max-height);
+    overflow: auto;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem);
+  }
+
+  .hero-copy {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .memory-photo,
+  .memory-text {
+    width: min(100%, 330px);
+  }
+
+  .memory-photo img {
+    height: var(--mobile-img-height);
+  }
+}
+
+@media (max-height: 680px) and (max-width: 760px) {
+  .section-heading {
+    margin-bottom: 22px;
+  }
+
+  .memory-reveal {
+    height: var(--memory-reveal-height);
+  }
+
+  .memory-sticky {
+    min-height: var(--app-height);
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .memory-photo img {
+    height: var(--mobile-img-height);
+  }
+
+  .memory-text {
+    padding: 22px;
+  }
+
+  .memory-text h3 {
+    font-size: clamp(1.45rem, 7vw, 2.2rem);
   }
 }
 
