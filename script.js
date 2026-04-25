@@ -49,7 +49,7 @@ function updateMemoryCards() {
     const rect = card.getBoundingClientRect();
     const travel = Math.max(1, rect.height - viewportHeight);
     const progress = clamp(-rect.top / travel, 0, 1);
-    const reveal = clamp((progress - 0.34) / 0.42, 0, 1);
+    const reveal = clamp((progress - 0.48) / 0.34, 0, 1);
 
     card.style.setProperty("--reveal", reveal.toFixed(3));
     card.style.setProperty("--photo-opacity", (1 - reveal).toFixed(3));
