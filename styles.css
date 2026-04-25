@@ -10,9 +10,6 @@
   --white: #ffffff;
   --shadow: 0 24px 70px rgba(80, 55, 64, 0.14);
   --app-height: 100svh;
-  --memory-reveal-height: 165svh;
-  --mobile-sticky-height: 88svh;
-  --mobile-sticky-pad: 34px;
   --mobile-text-max-height: 72svh;
 }
 
@@ -235,39 +232,25 @@ h3 {
 }
 
 .memory-reveal {
-  position: relative;
-  height: 165svh;
+  width: min(760px, calc(100% - 36px));
+  margin: 0 auto 48px;
 }
 
-.memory-sticky {
-  position: sticky;
-  top: 0;
+.memory-item {
   display: grid;
-  min-height: var(--app-height);
-  padding: 72px 18px;
-  place-items: center;
+  gap: 18px;
 }
 
-.memory-sticky::before {
-  position: absolute;
-  inset: 13% 0 auto;
-  height: 48%;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0));
-  content: "";
+.memory-item::before {
+  display: none;
 }
 
 .memory-photo,
 .memory-text {
-  grid-area: 1 / 1;
-  width: min(720px, 100%);
-  transition: opacity 80ms linear, transform 80ms linear, filter 80ms linear;
+  width: 100%;
 }
 
 .memory-photo {
-  opacity: var(--photo-opacity, 1);
-  transform: translateY(var(--photo-y, 0)) scale(var(--photo-scale, 1));
-  filter: saturate(var(--photo-saturation, 1)) blur(var(--photo-blur, 0));
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow);
@@ -286,8 +269,6 @@ h3 {
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow);
-  opacity: var(--reveal, 0);
-  transform: translateY(var(--text-y, 26px));
   backdrop-filter: blur(16px);
 }
 
@@ -471,17 +452,17 @@ h3 {
   }
 
   .memory-reveal {
-    height: var(--memory-reveal-height);
+    width: min(100% - 28px, 420px);
+    margin-bottom: 38px;
   }
 
-  .memory-sticky {
-    min-height: var(--mobile-sticky-height);
-    padding: var(--mobile-sticky-pad) 14px;
+  .memory-item {
+    gap: 14px;
   }
 
   .memory-photo,
   .memory-text {
-    width: min(calc(100vw - 56px), 340px);
+    width: 100%;
     max-width: 100%;
   }
 
@@ -492,8 +473,6 @@ h3 {
   }
 
   .memory-text {
-    max-height: var(--mobile-text-max-height);
-    overflow: auto;
     border-radius: 20px;
   }
 }
@@ -510,7 +489,7 @@ h3 {
 
   .memory-photo,
   .memory-text {
-    width: min(calc(100vw - 48px), 310px);
+    width: 100%;
   }
 
   .memory-photo img {
@@ -521,16 +500,6 @@ h3 {
 @media (max-height: 680px) and (max-width: 760px) {
   .section-heading {
     margin-bottom: 22px;
-  }
-
-  .memory-reveal {
-    height: var(--memory-reveal-height);
-  }
-
-  .memory-sticky {
-    min-height: var(--app-height);
-    padding-top: 16px;
-    padding-bottom: 16px;
   }
 
   .memory-photo img {
@@ -556,13 +525,8 @@ h3 {
     transition-duration: 0.001ms !important;
   }
 
-  .memory-photo {
-    opacity: 0.25;
-    filter: none;
-  }
-
+  .memory-photo,
   .memory-text {
-    opacity: 1;
     transform: none;
   }
 }
