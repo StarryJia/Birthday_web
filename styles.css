@@ -11,7 +11,6 @@
   --shadow: 0 24px 70px rgba(80, 55, 64, 0.14);
   --app-height: 100svh;
   --memory-reveal-height: 165svh;
-  --memory-img-max-height: 72svh;
   --mobile-sticky-height: 88svh;
   --mobile-sticky-pad: 34px;
   --mobile-text-max-height: 72svh;
@@ -52,7 +51,7 @@ figure {
 }
 
 .page-shell {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -269,7 +268,6 @@ h3 {
   opacity: var(--photo-opacity, 1);
   transform: translateY(var(--photo-y, 0)) scale(var(--photo-scale, 1));
   filter: saturate(var(--photo-saturation, 1)) blur(var(--photo-blur, 0));
-  overflow: hidden;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow);
@@ -279,8 +277,6 @@ h3 {
   display: block;
   width: 100%;
   height: auto;
-  max-height: var(--memory-img-max-height);
-  object-fit: contain;
   border-radius: inherit;
 }
 
@@ -485,13 +481,13 @@ h3 {
 
   .memory-photo,
   .memory-text {
-    width: min(100%, clamp(286px, 88vw, 410px));
+    width: calc(100vw - 28px);
+    max-width: 430px;
   }
 
   .memory-photo img {
     height: auto;
-    max-height: var(--memory-img-max-height);
-    object-fit: contain;
+    max-width: 100%;
     border-radius: 20px;
   }
 

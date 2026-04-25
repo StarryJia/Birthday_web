@@ -15,7 +15,6 @@ function updateViewportHeight() {
 
   document.documentElement.style.setProperty("--app-height", `${viewportHeight}px`);
   document.documentElement.style.setProperty("--memory-reveal-height", `${revealHeight}px`);
-  document.documentElement.style.setProperty("--memory-img-max-height", `${viewportHeight * (isMobile ? 0.56 : 0.72)}px`);
   document.documentElement.style.setProperty("--mobile-sticky-height", `${stickyHeight}px`);
   document.documentElement.style.setProperty("--mobile-sticky-pad", `${stickyPad}px`);
   document.documentElement.style.setProperty("--mobile-text-max-height", `${viewportHeight * 0.72}px`);
