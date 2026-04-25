@@ -4,7 +4,7 @@ const giftButton = document.querySelector("[data-gift-button]");
 const surpriseMessage = document.querySelector("[data-surprise-message]");
 
 function updateViewportHeight() {
-  const viewportHeight = window.visualViewport?.height || window.innerHeight;
+  const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
   document.documentElement.style.setProperty("--app-height", `${viewportHeight}px`);
 }
@@ -31,21 +31,29 @@ function launchConfetti(amount = 28) {
   }
 }
 
-confettiButton?.addEventListener("click", () => launchConfetti());
+if (confettiButton) {
+  confettiButton.addEventListener("click", () => launchConfetti());
+}
 
-giftButton?.addEventListener("click", () => {
-  const isOpen = giftButton.classList.toggle("is-open");
+if (giftButton) {
+  giftButton.addEventListener("click", () => {
+    const isOpen = giftButton.classList.toggle("is-open");
 
-  giftButton.setAttribute("aria-expanded", String(isOpen));
-  surpriseMessage?.classList.toggle("is-visible", isOpen);
+    giftButton.setAttribute("aria-expanded", String(isOpen));
+    if (surpriseMessage) {
+      surpriseMessage.classList.toggle("is-visible", isOpen);
+    }
 
-  if (isOpen) {
-    launchConfetti(42);
-  }
-});
+    if (isOpen) {
+      launchConfetti(42);
+    }
+  });
+}
 
 window.addEventListener("resize", updateViewportHeight);
-window.visualViewport?.addEventListener("resize", updateViewportHeight);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", updateViewportHeight);
+}
 
 window.addEventListener(
   "load",
