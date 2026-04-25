@@ -8,12 +8,7 @@ function updateViewportHeight() {
   const viewportHeight = window.visualViewport?.height || window.innerHeight;
   const viewportWidth = window.visualViewport?.width || window.innerWidth;
   const isMobile = viewportWidth <= 760;
-  const isNarrow = viewportWidth <= 380;
   const isShort = viewportHeight <= 680 && isMobile;
-  const imageRatio = isShort ? 0.44 : isNarrow ? 0.46 : 0.5;
-  const imageMin = isShort ? 230 : isNarrow ? 250 : 280;
-  const imageMax = isShort ? 340 : isNarrow ? 390 : 480;
-  const imageHeight = clamp(viewportHeight * imageRatio, imageMin, imageMax);
   const revealHeight = viewportHeight * (isShort ? 1.55 : isMobile ? 1.42 : 1.65);
   const stickyHeight = viewportHeight * (isMobile ? 0.88 : 1);
   const stickyPad = clamp(viewportHeight * 0.045, 18, 38);
@@ -23,7 +18,6 @@ function updateViewportHeight() {
   document.documentElement.style.setProperty("--memory-img-max-height", `${viewportHeight * (isMobile ? 0.56 : 0.72)}px`);
   document.documentElement.style.setProperty("--mobile-sticky-height", `${stickyHeight}px`);
   document.documentElement.style.setProperty("--mobile-sticky-pad", `${stickyPad}px`);
-  document.documentElement.style.setProperty("--mobile-img-height", `${imageHeight}px`);
   document.documentElement.style.setProperty("--mobile-text-max-height", `${viewportHeight * 0.72}px`);
 }
 
