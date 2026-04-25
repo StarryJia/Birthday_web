@@ -244,7 +244,8 @@ h3 {
 
 .memory-item {
   display: grid;
-  gap: 18px;
+  min-height: var(--memory-stage-height, 360px);
+  align-items: stretch;
 }
 
 .memory-item::before {
@@ -253,6 +254,7 @@ h3 {
 
 .memory-photo,
 .memory-text {
+  grid-area: 1 / 1;
   width: 100%;
 }
 
@@ -266,6 +268,7 @@ h3 {
   opacity: var(--memory-photo-opacity, 1);
   transform: translateY(var(--memory-photo-y, 0)) scale(var(--memory-photo-scale, 1));
   transition: opacity 120ms linear, transform 120ms linear;
+  z-index: 1;
 }
 
 .memory-photo img {
@@ -277,15 +280,21 @@ h3 {
 }
 
 .memory-text {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(26px, 7vw, 58px);
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
-  opacity: var(--memory-text-opacity, 0.92);
+  opacity: var(--memory-text-opacity, 0);
   transform: translateY(var(--memory-text-y, 0));
   transition: opacity 120ms linear, transform 120ms linear;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .memory-text span {

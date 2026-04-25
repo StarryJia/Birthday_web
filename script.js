@@ -19,15 +19,22 @@ function updateMemoryCards() {
 
   memoryCards.forEach((card) => {
     const rect = card.getBoundingClientRect();
+    const image = card.querySelector(".memory-photo img");
+    const item = card.querySelector(".memory-item");
     const start = viewportHeight * 0.78;
     const end = viewportHeight * 0.28;
     const progress = clamp((start - rect.top) / (start - end), 0, 1);
 
-    card.style.setProperty("--memory-photo-opacity", (1 - progress * 0.72).toFixed(3));
+    if (image && item) {
+      const imageHeight = image.getBoundingClientRect().height || image.height;
+      item.style.setProperty("--memory-stage-height", `${Math.max(260, imageHeight).toFixed(1)}px`);
+    }
+
+    card.style.setProperty("--memory-photo-opacity", (1 - progress * 0.92).toFixed(3));
     card.style.setProperty("--memory-photo-y", `${(-12 * progress).toFixed(1)}px`);
     card.style.setProperty("--memory-photo-scale", (1 - progress * 0.025).toFixed(3));
-    card.style.setProperty("--memory-text-opacity", (0.58 + progress * 0.42).toFixed(3));
-    card.style.setProperty("--memory-text-y", `${(20 * (1 - progress)).toFixed(1)}px`);
+    card.style.setProperty("--memory-text-opacity", clamp((progress - 0.18) / 0.62, 0, 1).toFixed(3));
+    card.style.setProperty("--memory-text-y", `${(24 * (1 - progress)).toFixed(1)}px`);
   });
 }
 
